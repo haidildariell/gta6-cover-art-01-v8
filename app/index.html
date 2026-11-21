@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tideline Cover Press — GTA 6-style cover art maker</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+  <h1>TIDELINE COVER PRESS</h1>
+  <p>Turn any photo into GTA 6-style cover art — offline, in your browser, exported as PNG.</p>
+</header>
+
+<main class="editor">
+  <div class="preview-col">
+    <canvas id="preview-canvas" width="960" height="540"></canvas>
+    <p class="preview-hint">Click a panel to select it, then drag to reposition the photo and scroll to zoom. Pick a cast photo below to fill the selected panel.</p>
+  </div>
+
+  <div class="controls-col">
+    <section>
+      <h2>Cast &amp; Photos</h2>
+      <div id="cast-strip"></div>
+      <p style="margin:10px 0 0">
+        <label class="upload-label">+ Add your own photos
+          <input id="input-upload" type="file" accept="image/*" multiple>
+        </label>
+      </p>
+    </section>
+
+    <section>
+      <h2>Layout</h2>
+      <div id="layout-picker"></div>
+    </section>
+
+    <section>
+      <h2>Grade</h2>
+      <div id="grade-picker"></div>
+    </section>
+
+    <section>
+      <h2>Caption</h2>
+      <div class="field">
+        <label for="input-title">Cover title</label>
+        <input id="input-title" type="text" maxlength="24" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="input-subtitle">Script subtitle</label>
+        <input id="input-subtitle" type="text" maxlength="40" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="input-tagline">Tagline</label>
+        <input id="input-tagline" type="text" maxlength="80" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="input-quote">Press quote</label>
+        <input id="input-quote" type="text" maxlength="80" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="input-gazette">Gazette name</label>
+        <input id="input-gazette" type="text" maxlength="40" autocomplete="off">
+      </div>
+    </section>
+
+    <section>
+      <h2>Poster furniture</h2>
+      <div class="toggles">
+        <label><input id="toggle-tags" type="checkbox"> Role tags on panels</label>
+        <label><input id="toggle-press" type="checkbox"> Press strip (stars + quote)</label>
+        <label><input id="toggle-billing" type="checkbox"> Billing block + seal + barcode</label>
+        <label><input id="toggle-corners" type="checkbox"> Corner furniture (roundel + platform pill)</label>
+      </div>
+      <div class="actions-row" style="margin-top:10px">
+        <button id="btn-fill-all" class="action" type="button">Fill all panels</button>
+        <button id="btn-shuffle" class="action" type="button">Shuffle panels</button>
+        <button id="btn-undo" class="action" type="button">Undo</button>
+        <button id="btn-redo" class="action" type="button">Redo</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Export PNG</h2>
+      <div class="actions-row">
+        <button class="export-btn" type="button" data-export="square">1080 &times; 1080</button>
+        <button class="export-btn" type="button" data-export="story">1080 &times; 1350</button>
+        <button class="export-btn" type="button" data-export="landscape">1920 &times; 1080</button>
+      </div>
+      <p style="color:#cbb8a8;font-size:12px;margin:10px 0 0">Photos never leave your machine. Everything runs offline from these files.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="app-footer">
+  Sample photos generated with an image model for this entry; no real person depicted.
+  Fonts: Anton &amp; Pacifico under the SIL Open Font License (see fonts/).
+  Built for the make.fun bounty gta6-cover-art-01.
+</footer>
+
+<script type="module" src="js/editor.js"></script>
+</body>
+</html>
